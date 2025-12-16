@@ -1,0 +1,75 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "92560d7f-efa1-856c-4ea2-01e7f5c17843",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "pipeline_run_id": {
+              "value": {
+                "value": "@pipeline().RunId",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Logs Ingestion Notebook",
+        "dependsOn": []
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "batchCount": 10,
+          "items": {
+            "value": "@json(activity('Logs Ingestion Notebook').output.result.exitValue)",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Office365Email",
+              "typeProperties": {
+                "body": "<p>Hello,</p>\n<p>The issue have been spotted during jobs execution, you can find a details below:</p>\n<ul>\n  <li>Workspace Name: @{item().WorkspaceName}</li>\n  <li>Workspace Id: @{item().WorkspaceId}</li>\n  <li>Failed Item Name: @{item().FailedItemName}</li>\n  <li>Failed Item Type: @{item().FailedItemType}</li>\n  <li>ErrorMessage: @{item().ErrorMessage}</li>\n  <li>Owner User Name: @{item().OwnerUserName}</li>\n  <li>Owner User Email: @{item().OwnerUserEmail}</li>\n  <li>Scheduled On: @{item().jobScheduleTimeUtc}</li>\n  <li>Started On: @{item().jobStartTimeUtc}</li>\n  <li>Finished On: @{item().jobEndTimeUtc}</li>\n</ul>",
+                "to": "lukasz.lubina@dataguide.tech",
+                "subject": {
+                  "value": "Issue spotted in workspace @{item().WorkspaceName}",
+                  "type": "Expression"
+                }
+              },
+              "externalReferences": {
+                "connection": "01964c17-cfb6-47a2-a1f2-cffad867fb10"
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Send Mail",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "ForEach1",
+        "dependsOn": [
+          {
+            "activity": "Logs Ingestion Notebook",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
