@@ -1,0 +1,10 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DF_DimDate",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "connections": []
+}
