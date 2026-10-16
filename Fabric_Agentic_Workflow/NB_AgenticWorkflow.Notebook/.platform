@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "NB_AgenticWorkflow"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "78078b7f-ffca-a573-4be6-3f60c6be7bf2"
+  }
+}

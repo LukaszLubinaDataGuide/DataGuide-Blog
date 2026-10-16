@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "PL_DimDate_Orchestrator_CLI",
+    "description": "CLI-created: runs NB_AgenticWorkflow, then NB_Create_Dim_Date on success."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6f78a090-37b7-ba3a-4ab3-c20ec1bdbb1a"
+  }
+}

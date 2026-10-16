@@ -1,0 +1,26 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "DF_DimDate2021_PL_DE",
+  "documentLocale": "en-us",
+  "queriesMetadata": {
+    "dim_date_2021": {
+      "queryId": "3a776c91-07cb-470d-bdf3-89856c56cd4e",
+      "queryName": "dim_date_2021"
+    },
+    "dim_date_2021_DataDestination": {
+      "queryId": "f268440f-2072-4fff-b655-337b21e55fd5",
+      "queryName": "dim_date_2021_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"88d15350-8421-4bed-93b3-4002b0517ca5\",\"DatasourceId\":\"d0cea2db-8e14-4976-90e0-38c02c511c35\"}"
+    }
+  ],
+  "allowNativeQueries": false
+}

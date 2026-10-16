@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "description": "Orchestrates NB_AgenticWorkflow, then NB_Create_Dim_Date on success.",
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "78078b7f-ffca-a573-4be6-3f60c6be7bf2",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Run NB_AgenticWorkflow",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "e973a67f-c363-85d9-4cd1-475d39efa95d",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Run NB_Create_Dim_Date",
+        "dependsOn": [
+          {
+            "activity": "Run NB_AgenticWorkflow",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

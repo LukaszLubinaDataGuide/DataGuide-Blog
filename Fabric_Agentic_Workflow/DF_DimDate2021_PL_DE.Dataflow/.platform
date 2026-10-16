@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "DF_DimDate2021_PL_DE",
+    "description": "dim_date filtered to 2021 with Polish and German day names, written to LH_AgenticWorkflow.dbo.dim_date_2021"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "251e8746-fb31-4bb0-83d5-851f5172fcde"
+  }
+}

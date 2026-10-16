@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "LH_AgenticWorkflow"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7b53b8a8-4aca-4d49-ac0a-c81a494bf83a"
+  }
+}

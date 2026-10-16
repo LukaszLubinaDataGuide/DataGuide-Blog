@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "NB_Create_Dim_Date",
+    "description": "Builds dbo.dim_date in LH_AgenticWorkflow with US public-holiday flag and name from dbo.publicholidays."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e973a67f-c363-85d9-4cd1-475d39efa95d"
+  }
+}
